@@ -1,11 +1,13 @@
-# Homework #1
+# Homework #1 - Java OOP Concepts
 
-## 1. Why we need to use OOP? Some major OOP languages?
-OOP (Object-Oriented Programming), kodun modüler, yeniden kullanılabilir ve bakımı kolay olması için kullanılır. OOP ile yazılan kodlar daha anlaşılır ve esnektir.
+## 1. Why do we need to use OOP? Some major OOP languages?
 
-**Başlıca OOP dilleri:** Java, C++, Python, C#.
+OOP (Object-Oriented Programming) is used to make code modular, reusable, and easier to maintain. OOP-written code is more readable and flexible.
 
-**Örnek:**
+**Major OOP languages:** Java, C++, Python, C#.
+
+**Example:**
+
 ```java
 class Car {
     String brand;
@@ -17,13 +19,16 @@ class Car {
     }
 }
 ```
-Bu örnekte bir **Car** sınıfı oluşturduk ve nesne yönelimli programlama ile bir nesne temsil ettik.
+
+In this example, we created a **Car** class and represented an object using OOP principles.
 
 ## 2. Interface vs Abstract class?
-- **Interface:** Yalnızca metot imzalarını içerir, çoklu kalıtıma olanak tanır.
-- **Abstract Class:** Hem metot imzaları hem de gövdeleri içerebilir, tek bir sınıftan türetilebilir.
 
-**Örnek:**
+- **Interface:** Contains only method signatures, allows multiple inheritance.
+- **Abstract Class:** Can contain both method signatures and implementations, can only be extended by one class.
+
+**Example:**
+
 ```java
 interface Animal {
     void makeSound();
@@ -34,14 +39,17 @@ class Dog implements Animal {
     }
 }
 ```
-Burada **Dog**, **Animal** arayüzünü uygular.
 
-## 3. Why we need equals and hashcode? When to override?
-- **equals()**: Nesnelerin içerik bazında eşit olup olmadığını kontrol eder.
-- **hashCode()**: Nesnelerin bellek adresine bağlı bir tamsayı döndürür.
-- **Ne zaman override edilir?** HashMap, HashSet gibi koleksiyonlarda doğru çalışmasını sağlamak için.
+Here, **Dog** implements the **Animal** interface.
 
-**Örnek:**
+## 3. Why do we need equals and hashcode? When to override?
+
+- **equals()**: Checks if two objects are equal based on content.
+- **hashCode()**: Returns an integer based on the object's memory address.
+- **When to override?** To ensure proper behavior in collections like HashMap, HashSet.
+
+**Example:**
+
 ```java
 class Person {
     String name;
@@ -60,27 +68,34 @@ class Person {
     }
 }
 ```
-Burada **equals() ve hashCode()** metotlarını override ettik, böylece `HashSet` veya `HashMap` gibi veri yapıları içinde **eşitlik** düzgün çalışır.
+
+Here, **equals() and hashCode()** methods are overridden to ensure correct equality checking in `HashSet` or `HashMap`.
 
 ## 4. Diamond problem in Java? How to fix it?
-Çoklu kalıtımda aynı metodu farklı yollarla miras alırken oluşur. **Çözüm:** Interface’ler kullanılır, Java’da class'lar birden fazla sınıftan türetilemez.
 
-## 5. Why we need Garbage Collector? How does it run?
-Bellek yönetimini otomatikleştirmek için kullanılır. JVM, kullanılmayan nesneleri tespit edip temizler.
+Occurs when multiple inheritance leads to ambiguity in method resolution. **Solution:** Use interfaces, as Java does not allow multiple inheritance in classes.
+
+## 5. Why do we need Garbage Collector? How does it run?
+
+It automates memory management. The JVM identifies and removes unused objects.
 
 ## 6. Java `static` keyword usage?
-- **Static Variables:** Sınıfa aittir, nesneye bağlı değildir.
-- **Static Methods:** Nesne oluşturmadan çağrılabilir.
-- **Static Blocks:** Sınıf yüklendiğinde çalışır.
 
-## 7. Immutability means? Where, How and Why to use it?
-**Immutable** nesneler değiştirilemez (örneğin `String`). **Kullanım alanları:** Thread-safe programlama, güvenilir veri yapıları.
+- **Static Variables:** Belong to the class, not instances.
+- **Static Methods:** Can be called without creating an instance.
+- **Static Blocks:** Execute when the class is loaded.
 
-## 8. Composition and Aggregation means and differences?
-- **Composition:** Bir nesne başka bir nesneye **bağımlıdır** (strong association). İç içe nesneler vardır ve bağımlılık yüksektir.
-- **Aggregation:** Nesneler birbirinden bağımsızdır, **zayıf bağlıdır** (weak association).
+## 7. What does Immutability mean? Where, How, and Why to use it?
 
-**Örnek:**
+**Immutable** objects cannot be changed (e.g., `String`). **Use cases:** Thread-safe programming, reliable data structures.
+
+## 8. What do Composition and Aggregation mean, and what are the differences?
+
+- **Composition:** One object is strongly dependent on another (strong association).
+- **Aggregation:** Objects are related but can exist independently (weak association).
+
+**Example:**
+
 ```java
 class Engine {}
 class Car {
@@ -93,27 +108,34 @@ class Student {
     Student(University university) { this.university = university; }
 }
 ```
-Burada **Composition**'da nesne tamamen iç içe geçmiş, **Aggregation**'da dışarıdan bağlanmıştır.
 
-## 9. Cohesion and Coupling means and differences?
-- **Cohesion:** Bir sınıftaki metotların birbirine ne kadar bağlı olduğu.
-- **Coupling:** Sınıfların birbirine ne kadar bağımlı olduğu. **Düşük coupling daha iyidir.**
+In **Composition**, objects are tightly bound; in **Aggregation**, they are loosely coupled.
 
-## 10. Heap and Stack means and differences?
-- **Heap:** Nesnelerin tutulduğu alan (Garbage Collector burada çalışır).
-- **Stack:** Metot çağrıları ve yerel değişkenler tutulur.
+## 9. What do Cohesion and Coupling mean, and what are the differences?
 
-## 11. Exception means? Type of Exceptions?
-- **Checked Exception:** Compile-time hataları (IOException, SQLException).
-- **Unchecked Exception:** Runtime hataları (NullPointerException, ArithmeticException).
+- **Cohesion:** Measures how closely related methods in a class are.
+- **Coupling:** Measures dependency between classes. **Low coupling is preferred.**
+
+## 10. What are Heap and Stack, and what are the differences?
+
+- **Heap:** Stores objects (Garbage Collector operates here).
+- **Stack:** Stores method calls and local variables.
+
+## 11. What does Exception mean? Types of Exceptions?
+
+- **Checked Exception:** Occurs at compile-time (IOException, SQLException).
+- **Unchecked Exception:** Occurs at runtime (NullPointerException, ArithmeticException).
 
 ## 12. How to summarize ‘clean code’ as short as possible?
-- **Okunabilir, modüler, tekrar kullanılabilir ve gereksiz kod içermeyen kod yazmak.**
+
+- **Readable, modular, reusable, and free of unnecessary code.**
 
 ## 13. What is the method of hiding in Java?
-Method Hiding, **static metotların alt sınıflarda yeniden tanımlanmasıdır.** Overriding’den farklı olarak, hangi metot çağrılacağı nesneye değil, referansa bağlıdır.
+
+Method Hiding occurs when **static methods are redefined in subclasses.** Unlike Overriding, the method that gets called depends on the reference type, not the object.
 
 ## 14. What is the difference between abstraction and polymorphism in Java?
-- **Abstraction:** Gereksiz detayları gizleyerek yalnızca önemli kısımları gösterme (Abstract class, Interface).
-- **Polymorphism:** Aynı metodu farklı şekillerde kullanabilme (Method Overloading & Overriding).
+
+- **Abstraction:** Hides unnecessary details, showing only important parts (Abstract classes, Interfaces).
+- **Polymorphism:** Allows the same method to be used in different ways (Method Overloading & Overriding).
 
