@@ -1,4 +1,4 @@
-# Homework #1 - Java OOP Concepts
+# Homework #1
 
 ## 1. Why do we need to use OOP? Some major OOP languages?
 
